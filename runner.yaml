@@ -9,10 +9,11 @@ build:
     apt install -y perl
     wget -O /tmp/Image-ExifTool-13.10.tar.gz https://exiftool.org/Image-ExifTool-13.10.tar.gz
     cd /tmp && gzip -dc Image-ExifTool-13.10.tar.gz | tar -xf -
-    cd /tmp/Image-ExifTool-13.10/
-    perl Makefile.PL
-    make test
-    make install
+    ls -alF /tmp/
+    ls -alF /tmp/Image-ExifTool-13.10/
+    cd /tmp/Image-ExifTool-13.10/ && perl Makefile.PL
+    cd /tmp/Image-ExifTool-13.10/ && make test
+    cd /tmp/Image-ExifTool-13.10/ && make install
     echo "END: Building the runner"
 
 webform:
