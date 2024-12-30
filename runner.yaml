@@ -8,8 +8,8 @@ build:
     echo "START: Building the runner"
     apt install -y perl
     wget -O /tmp/Image-ExifTool-13.10.tar.gz https://exiftool.org/Image-ExifTool-13.10.tar.gz
-    cd /tmp && gzip -dc Image-ExifTool-13.10.tar.gz | tar -xf -
     ls -alF /tmp/
+    cd /tmp && gzip -dc Image-ExifTool-13.10.tar.gz | tar -xf -
     ls -alF /tmp/Image-ExifTool-13.10/
     cd /tmp/Image-ExifTool-13.10/ && perl Makefile.PL
     cd /tmp/Image-ExifTool-13.10/ && make test
