@@ -1,0 +1,25 @@
+runner:
+  name: Image Metadata EXIF
+  description: Upload an image, then the Runner leverages ExifTool to display image metadata.
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    apt install -y perl
+    wget -O /tmp/Image-ExifTool-13.10.tar.gz https://exiftool.org/Image-ExifTool-13.10.tar.gz
+    cd /tmp && gzip -dc Image-ExifTool-13.10.tar.gz | tar -xf -
+    cd /tmp/Image-ExifTool-13.10/
+    perl Makefile.PL
+    make test
+    make install
+    echo "END: Building the runner"
+
+webform:
+  - name: image_name
+    prompt: Image
+    type: file
+
+launch:
+  type: binary
+  command: exiftool inputs/${image_name}
