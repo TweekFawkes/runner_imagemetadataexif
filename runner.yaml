@@ -6,6 +6,7 @@ runner:
 build:
   commands: |
     echo "START: Building the runner"
+    apt install -y build-essential
     apt install -y perl
     wget -O /tmp/Image-ExifTool-13.10.tar.gz https://exiftool.org/Image-ExifTool-13.10.tar.gz
     ls -alF /tmp/
